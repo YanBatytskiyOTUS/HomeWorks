@@ -58,12 +58,12 @@ delete:
 ![](two ssh to psql.png)
 
 - [x] в первой сессии новую таблицу и наполнить ее данными create table persons(id serial, first_name text, second_name text); insert into persons(first_name, second_name) values('ivan', 'ivanov'); insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
-![](create and insert.png)
+![](attachments/create and insert.png)
 - [x] посмотреть текущий уровень изоляции: show transaction isolation level
 - [x] начать новую транзакцию в обоих сессиях с дефолтным (не меняя) уровнем изоляции
 - [x] в первой сессии добавить новую запись insert into persons(first_name, second_name) values('sergey', 'sergeev');
 - [x] сделать select _from persons во второй сессии_
-![](insert.png)
+![](attachments/insert.png)
 - [x] видите ли вы новую запись и если да то почему?
 	-**новую запись во второй сессии не видно, потому что в первой не закончена транзакция команндой COMMIT;, а уровень изоляции не позволяет грязное чтение**
 	
