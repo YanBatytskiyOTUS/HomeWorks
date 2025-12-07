@@ -55,7 +55,7 @@ delete:
 ```
 3. Вход по SSH:
 
-![](attachments/two ssh to psql.png)
+![](attachments/two-ssh-to-psql.png)
 
 - [x] в первой сессии новую таблицу и наполнить ее данными create table persons(id serial, first_name text, second_name text); insert into persons(first_name, second_name) values('ivan', 'ivanov'); insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
 ![](attachments/create and insert.png)
@@ -76,7 +76,7 @@ delete:
 - [x] начать новые но уже repeatable read транзации - set transaction isolation level repeatable read;
 - [x] в первой сессии добавить новую запись insert into persons(first_name, second_name) values('sveta', 'svetova');
 - [x] сделать select* from persons во второй сессии*
-![](attachments/repeatable read.png)
+![](attachments/repeatable-read.png)
 
 - [x] видите ли вы новую запись и если да то почему?
 	-**запись не видна, так как грязное чтение не разрешено.**
