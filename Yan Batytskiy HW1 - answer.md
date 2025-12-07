@@ -58,7 +58,7 @@ delete:
 ![](attachments/two-ssh-to-psql.png)
 
 - [x] в первой сессии новую таблицу и наполнить ее данными create table persons(id serial, first_name text, second_name text); insert into persons(first_name, second_name) values('ivan', 'ivanov'); insert into persons(first_name, second_name) values('petr', 'petrov'); commit;
-![](attachments/create and insert.png)
+![](attachments/create_and_insert.png)
 - [x] посмотреть текущий уровень изоляции: show transaction isolation level
 - [x] начать новую транзакцию в обоих сессиях с дефолтным (не меняя) уровнем изоляции
 - [x] в первой сессии добавить новую запись insert into persons(first_name, second_name) values('sergey', 'sergeev');
