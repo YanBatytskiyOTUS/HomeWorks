@@ -1,6 +1,6 @@
 #postgresql #otus
 - создайте виртуальную машину c Ubuntu 20.04/22.04 LTS в ЯО/Virtual Box/докере
-- ![](attachments/Screenshot 2025-12-16 at 17.02.56.png)
+- ![](attachments/Screenshot1.png)
 
 - поставьте на нее PostgreSQL 15 через sudo apt
 - проверьте что кластер запущен через sudo -u postgres pg_lsclusters
@@ -9,15 +9,15 @@
     postgres=# insert into test values('1');  
     \q
 - остановите postgres например через sudo -u postgres pg_ctlcluster 15 main stop
-	![](attachments/Screenshot 2025-12-16 at 17.40.40.png)
+	![](attachments/Screenshot2.png)
 	
 - создайте новый диск к ВМ размером 10GB
-	![](attachments/Screenshot 2025-12-16 at 17.52.02.png)
+	![](attachments/Screenshot3.png)
 
 - добавьте свеже-созданный диск к виртуальной машине - надо зайти в режим ее редактирования и дальше выбрать пункт attach existing disk
 - проинициализируйте диск согласно инструкции и подмонтировать файловую систему, только не забывайте менять имя диска на актуальное, в вашем случае это скорее всего будет /dev/sdb - [https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux](https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux "https://www.digitalocean.com/community/tutorials/how-to-partition-and-format-storage-devices-in-linux")
 - перезагрузите инстанс и убедитесь, что диск остается примонтированным (если не так смотрим в сторону fstab)
-![](attachments/Screenshot 2025-12-16 at 17.55.13.png)
+![](attachments/Screenshot4.png)
 
 - сделайте пользователя postgres владельцем /mnt/data - chown -R postgres:postgres /mnt/data/
 - перенесите содержимое /var/lib/postgres/15 в /mnt/data - mv /var/lib/postgresql/15/mnt/data
@@ -28,7 +28,7 @@
 
 - попытайтесь запустить кластер - sudo -u postgres pg_ctlcluster 15 main start
 - напишите получилось или нет и почему - **ищет данные по старому пути**
-![](attachments/Screenshot 2025-12-16 at 18.40.39.png)
+![](attachments/Screenshot5.png)
 
 - задание: найти конфигурационный параметр в файлах раположенных в /etc/postgresql/15/main который надо поменять и поменяйте его
 - напишите что и почему поменяли
